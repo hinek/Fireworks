@@ -17,18 +17,64 @@
       var simpleBang = {
         y: 320,
         vx: 0,
-        vy: -7,
+        vy: -11,
         timeToNextStep: 600,
         nextStep: {
           count: 500,
           minAngle: 0,
           maxAngle: 2 * Math.PI,
-          velocity: 5
+          minVelocity: 0.5,
+          maxVelocity: 5
         }
       };
+
+      var fountain = {
+        y: 320,
+        positionFixed: true,
+        timeToNextStep: 10,
+        nextStep: {
+          count: 10,
+          minAngle: -0.02 * Math.PI,
+          maxAngle: 0.02 * Math.PI,
+          minVelocity: 5,
+          maxVelocity: 10,
+          duration: 1500
+        }
+      };
+
+      var sparkleRocket = {
+        y: 320,
+        vx: 0,
+        vy: -12,
+        timeToNextStep: 50,
+        nextStep: {
+          count: 30,
+          minAngle: 0,
+          maxAngle: 2 * Math.PI,
+          minVelocity: 0.5,
+          maxVelocity: 5,
+          duration: 550
+        }
+      }
       
       addFirework(simpleBang, 1000, 200);
+      addFirework(fountain, 1200, 250);
+      addFirework(simpleBang, 2000, 100);
+      addFirework(fountain, 2400, 130);
 
+      addFirework(sparkleRocket, 2500, 100);
+      addFirework(sparkleRocket, 2500, 380);
+      addFirework(sparkleRocket, 2700, 150);
+      addFirework(sparkleRocket, 2700, 330);
+      addFirework(sparkleRocket, 2900, 200);
+      addFirework(sparkleRocket, 2900, 280);
+
+      addFirework(simpleBang, 3500, 360);
+      addFirework(simpleBang, 3800, 300);
+      addFirework(fountain, 3900, 340);
+      addFirework(simpleBang, 4100, 320);
+      addFirework(simpleBang, 4400, 120);
+      addFirework(simpleBang, 4500, 140);
       runLoop(document.getElementById("fireworkCanvas"));
     </script>
 
