@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta charset="utf-8" />
-      <title>Firework</title>
+      <title>Fireworks</title>
       <script src="fireworks.js"></script>
       <style>
         * { padding: 0; margin: 0; }
@@ -11,13 +11,13 @@
   </head>
   <body>
 
-    <canvas id="fireworkCanvas" width="480" height="320"></canvas>
+    <canvas id="fireworkCanvas" width="800" height="600"></canvas>
 
     <script>
       var simpleBang = {
-        y: 320,
+        y: 600,
         vx: 0,
-        vy: -11,
+        vy: -14,
         timeToNextStep: 600,
         nextStep: {
           count: 500,
@@ -29,23 +29,23 @@
       };
 
       var fountain = {
-        y: 320,
+        y: 600,
         positionFixed: true,
         timeToNextStep: 10,
         nextStep: {
           count: 10,
           minAngle: -0.02 * Math.PI,
           maxAngle: 0.02 * Math.PI,
-          minVelocity: 5,
-          maxVelocity: 10,
+          minVelocity: 8,
+          maxVelocity: 12,
           duration: 1500
         }
       };
 
       var sparkleRocket = {
-        y: 320,
+        y: 600,
         vx: 0,
-        vy: -12,
+        vy: -16,
         timeToNextStep: 50,
         nextStep: {
           count: 30,
@@ -56,25 +56,45 @@
           duration: 550
         }
       }
+
+      var sparkler = {
+        y: 300,
+        positionFixed: true,
+        timeToNextStep: 10,
+        nextStep: {
+          count: 2,
+          minAngle: 0,
+          maxAngle: 2 * Math.PI,
+          minVelocity: 3,
+          maxVelocity: 4,
+          duration: 1000
+        }
+      };
+
+      addFirework(sparkler, 50, 400, ["255,255,255","127,127,127","191,191,191","63,63,63"]);
       
-      addFirework(simpleBang, 1000, 200);
-      addFirework(fountain, 1200, 250);
-      addFirework(simpleBang, 2000, 100);
-      addFirework(fountain, 2400, 130);
+      addFirework(simpleBang, 1000, 330, ["255,0,0","255,127,0","255,255,0"]);
+      addFirework(fountain, 1200, 420, ["255,0,255","127,0,255", "127,0,127", "255,0,127"]);
+      addFirework(simpleBang, 2000, 170, ["127,255,0", "255,255,0", "0,255,0"]);
+      addFirework(fountain, 2400, 220, ["255,255,0", "255,127,0", "127,255,0", "127,127,0"]);
 
-      addFirework(sparkleRocket, 2500, 100);
-      addFirework(sparkleRocket, 2500, 380);
-      addFirework(sparkleRocket, 2700, 150);
-      addFirework(sparkleRocket, 2700, 330);
-      addFirework(sparkleRocket, 2900, 200);
-      addFirework(sparkleRocket, 2900, 280);
+      addFirework(sparkleRocket, 3000, 100, ["255,0,0"]);
+      addFirework(sparkleRocket, 3000, 700, ["255,0,0"]);
+      addFirework(sparkleRocket, 3200, 200, ["0,255,0"]);
+      addFirework(sparkleRocket, 3200, 600, ["0,255,0"]);
+      addFirework(sparkleRocket, 3400, 300, ["0,0,255"]);
+      addFirework(sparkleRocket, 3400, 500, ["0,0,255"]);
 
-      addFirework(simpleBang, 3500, 360);
-      addFirework(simpleBang, 3800, 300);
-      addFirework(fountain, 3900, 340);
-      addFirework(simpleBang, 4100, 320);
-      addFirework(simpleBang, 4400, 120);
-      addFirework(simpleBang, 4500, 140);
+      addFirework(simpleBang, 4000, 600, ["0,0,255","0,127,255","0,255,255"]);
+      addFirework(simpleBang, 4300, 500, ["127,255,0","255,255,0","0,255,0"]);
+      addFirework(fountain, 4400, 570, ["0,255,255", "0,255,127", "0,127,255", "0,127,127"]);
+      addFirework(simpleBang, 4600, 530, ["0,0,255","0,127,255","0,255,255"]);
+      addFirework(simpleBang, 4900, 200, ["255,0,255","127,0,255", "0,0,255"]);
+      addFirework(simpleBang, 5000, 230, ["0,255,255","127,255,255","0,255,127","0,127,127"]);
+
+      addFirework(sparkler, 6000, 330, ["255,255,0","127,127,0"]);
+      addFirework(sparkler, 6000, 470, ["0,255,255","0,127,127"]);
+
       runLoop(document.getElementById("fireworkCanvas"));
     </script>
 

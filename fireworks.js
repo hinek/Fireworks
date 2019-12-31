@@ -1,12 +1,20 @@
 var canvas = null;
 var ctx = null;
+var elapsedMilliseconds = 0;
 var time = 0;
 var fireworks = [];
 var projectiles = [];
 var g = 9.81;
+var colorSwitch = 0;
 
-var addFirework = function(firework, startTime, x) {
-  fireworks.push({startTime: startTime, firework: firework, x: x});
+var addFirework = function(firework, startTime, x, colors) {
+  var newFirework = Object.assign({}, firework); // clone object
+  newFirework.x = x;
+  newFirework.colors = colors;
+  fireworks.push({
+    startTime: startTime,
+    firework: newFirework
+  });
 }
 
 var createProjectiles = function(x, y, instructions) {
@@ -17,7 +25,8 @@ var createProjectiles = function(x, y, instructions) {
       x: x,
       y: y,
       vx: velocity * Math.sin(angle),
-      vy: velocity * Math.cos(angle) * -1
+      vy: velocity * Math.cos(angle) * -1,
+      colors: [instructions.colors[++colorSwitch % instructions.colors.length]]
     });
   }
 }
@@ -26,11 +35,17 @@ var runLoop = function(drawingCanvas) {
   canvas = drawingCanvas;
   ctx = canvas.getContext("2d");
 
-  setInterval(iterate, 10);
+  elapsedMilliseconds = Date.now();
+  setInterval(iterateCheck, 1);
+}
+
+var iterateCheck = function() {
+  var milliseconds = Date.now();
+  iterate(milliseconds - elapsedMilliseconds);
+  elapsedMilliseconds = milliseconds;
 }
 
 var iterate = function(elapsed) {
-  elapsed = 10;
   time += elapsed;
 
   var i = fireworks.length;
@@ -39,12 +54,13 @@ var iterate = function(elapsed) {
     if (time > element.startTime) {
       // create projectiles
       projectiles.push({
-        x: element.x,
+        x: element.firework.x,
         y: element.firework.y,
         vx: element.firework.vx,
         vy: element.firework.vy,
+        colors: element.firework.colors,
         timeToNextStep: element.firework.timeToNextStep,
-        nextStep: Object.assign({}, element.firework.nextStep), // clone object
+        nextStep: Object.assign({colors: element.firework.colors}, element.firework.nextStep), // clone object
         positionFixed: element.firework.positionFixed
       });
       // delete element
@@ -93,9 +109,8 @@ var iterate = function(elapsed) {
 
 var draw = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(255,255,255,1)";
-
   projectiles.forEach(element => {
+    ctx.fillStyle = "rgba(" + element.colors[0] + ",1)";
     ctx.fillRect(element.x, element.y, 2, 2);    
   });
 }
