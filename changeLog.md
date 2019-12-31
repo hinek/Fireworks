@@ -19,3 +19,8 @@
 - using elapsed milliseconds to correct behaviour on slow systems
 - bigger canvas
 - new firework type (sparkler)
+
+## 0.4 (2019-12-30)
+- refactoring in data model
+- posibility to rotate effects
+- new firework types (multi bang rocket, spiral)
