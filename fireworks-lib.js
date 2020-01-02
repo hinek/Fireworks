@@ -96,8 +96,8 @@ var iterate = function(elapsed) {
     let element = projectiles[pIndex];
 
     // friction
-    element.vx *= 0.98;
-    element.vy *= 0.98;
+    element.vx *= 0.99;
+    element.vy *= 0.99;
 
     // gravity
     element.vy += g * (elapsed / 1000);

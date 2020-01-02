@@ -22,5 +22,9 @@
 
 ## 0.4 (2019-12-30)
 - refactoring in data model
-- posibility to rotate effects
+- possibility to rotate effects
 - new firework types (multi bang rocket, spiral)
+
+## 0.5 (2020-01-02)
+- reduced friction
+- new firework types (sparkle bang rocket, fire wheel)

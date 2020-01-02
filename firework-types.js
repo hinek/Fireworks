@@ -46,12 +46,50 @@ var sparkleRocket = {
   projectileCount: 1,
   minAngle: 0,
   maxAngle: 0,
-  minVelocity: 16,
-  maxVelocity: 16,
+  minVelocity: 14,
+  maxVelocity: 14,
   nextSteps: [
     {
       timeToStart: 50,
       instructions: sparkle
+    }
+  ]
+}
+
+var smallSparkle = {
+  projectileCount: 10,
+  minAngle: 0,
+  maxAngle: 2 * Math.PI,
+  minVelocity: 0.5,
+  maxVelocity: 1,
+  duration: 2000
+};
+
+var sparkleBang = {
+  projectileCount: 10,
+  minAngle: -0.3 * Math.PI,
+  maxAngle: 0.3 * Math.PI,
+  minVelocity: 8,
+  maxVelocity: 8,
+  nextSteps: [
+    {
+      timeToStart: 50,
+      instructions: smallSparkle
+    }
+  ]
+}
+
+var sparkleBangRocket = {
+  y: 600,
+  projectileCount: 1,
+  minAngle: 0,
+  maxAngle: 0,
+  minVelocity: 10,
+  maxVelocity: 10,
+  nextSteps: [
+    {
+      timeToStart: 600,
+      instructions: sparkleBang
     }
   ]
 }
@@ -117,3 +155,64 @@ var spiral = {
   duration: 2000,
   rotateAngles: 0.04 * Math.PI
 };
+
+var fireWheel = {
+  x: 400,
+  y: 600,
+  projectileCount: 1,
+  minAngle: 0,
+  maxAngle: 0,
+  minVelocity: 10,
+  maxVelocity: 10,
+  colors: ["255,0,0","255,127,0","255,255,0"],
+  nextSteps: [
+    {
+      timeToStart: 0,
+      instructions: {
+        projectileCount: 10,
+        minAngle: 0,
+        maxAngle: 0.02 * Math.PI,
+        minVelocity: 10,
+        maxVelocity: 10,
+        duration: 2000,
+        rotateAngles: 0.02 * Math.PI      
+      }
+    },
+    {
+      timeToStart: 0,
+      instructions: {
+        projectileCount: 10,
+        minAngle: 0.5 * Math.PI,
+        maxAngle: 0.52 * Math.PI,
+        minVelocity: 10,
+        maxVelocity: 10,
+        duration: 2000,
+        rotateAngles: 0.02 * Math.PI      
+      }
+    },
+    {
+      timeToStart: 0,
+      instructions: {
+        projectileCount: 10,
+        minAngle: Math.PI,
+        maxAngle: 1.02 * Math.PI,
+        minVelocity: 10,
+        maxVelocity: 10,
+        duration: 2000,
+        rotateAngles: 0.02 * Math.PI      
+      }
+    },
+    {
+      timeToStart: 0,
+      instructions: {
+        projectileCount: 10,
+        minAngle: 1.5 * Math.PI,
+        maxAngle: 1.52 * Math.PI,
+        minVelocity: 10,
+        maxVelocity: 10,
+        duration: 2000,
+        rotateAngles: 0.02 * Math.PI      
+      }
+    }
+  ]
+}
