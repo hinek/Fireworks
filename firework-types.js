@@ -162,8 +162,8 @@ var fireWheel = {
   projectileCount: 1,
   minAngle: 0,
   maxAngle: 0,
-  minVelocity: 10,
-  maxVelocity: 10,
+  minVelocity: 12,
+  maxVelocity: 12,
   colors: ["255,0,0","255,127,0","255,255,0"],
   nextSteps: [
     {

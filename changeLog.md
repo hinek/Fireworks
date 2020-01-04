@@ -28,3 +28,6 @@
 ## 0.5 (2020-01-02)
 - reduced friction
 - new firework types (sparkle bang rocket, fire wheel)
+
+## 0.6 (2020-01-04)
+- corrected friction (was missing elapsed time)
