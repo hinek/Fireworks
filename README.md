@@ -7,5 +7,4 @@ You can try it here: https://derhinek.itch.io/fireworks-2019
 
 # Fireworks 2020
 My newer project (using Godot and particles) is here:
-https://github.com/hinek/fireworks2020
-https://derhinek.itch.io/fireworks-2020
+https://github.com/hinek/fireworks2020 (try it: https://derhinek.itch.io/fireworks-2020)
